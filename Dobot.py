@@ -1,0 +1,31 @@
+# -*- coding: UTF-8 -*-
+# Copyright 2015-2021 - RoboDK Inc. - https://robodk.com/
+#
+# This file loads the compiled version of the RoboDK post processor for:
+#   Dobot robot controllers
+# 
+# More information about RoboDK Post Processors and Offline Programming:
+#     https://robodk.com/help#PostProcessor
+#     https://robodk.com/doc/en/PythonAPI/postprocessor.html
+# ----------------------------------------------------
+
+import sys
+import os
+
+# Detect Python version and post processor
+print("Using Python version: " + str(sys.version_info))
+path_app = os.path.dirname(__file__).replace(os.sep,"/")
+print("RoboDK Post Processor: " + path_app)
+
+# Check if the post is compatible with the Python version
+version_str = str(sys.version_info[0]) + str(sys.version_info[1])
+path_library = path_app + '/v' + version_str
+if not os.path.isdir(path_library):
+    raise Exception("Invalid Python version or RoboDK post processor not found. Make sure you are using a supported Python version: " + path_library)
+
+# Load the post processor
+exec("from v" + version_str + ".Dobot import *")
+
+if __name__== "__main__":
+    test_post()
+
