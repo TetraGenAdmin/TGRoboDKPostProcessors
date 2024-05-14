@@ -157,6 +157,7 @@ PTP {A1 -11.27,A2 -70.18,A3 82.40,A4 -1.82,A5 80.83,A6 -4.90,E1 0.00000}
 $TOOL = TOOL_DATA[2]
 $BASE = $NULLFRAME
 $VEL.CP = 1
+self.addline('$LOAD = LOAD_DATA[1]')
 
 FOR i = 1 to numOfCapturePoses
     wait for $FLAG[2]
@@ -263,6 +264,7 @@ PTP {A1 -11.27,A2 -70.18,A3 82.40,A4 -1.82,A5 80.83,A6 -4.90,E1 0.00000}
 $TOOL = TOOL_DATA[2]
 $BASE = $NULLFRAME
 $VEL.CP = 1
+$LOAD = LOAD_DATA[1]
 
 FOR i = 1 to numOfCapturePoses
     wait for $FLAG[2]
@@ -929,13 +931,16 @@ class RobotPost(object):
                 self.PROG.append(mainn)
                 # self.addline('$TOOL = {FRAME: ' + self.pose_2_str(self.torch_tcp) + '}')
                 self.addline('$TOOL = TOOL_DATA[8]')
+                self.addline('$LOAD = LOAD_DATA[1]')
             elif self.PROG_NAME[0].lower() == 's':
                 self.addline('$TOOL = TOOL_DATA[8]')
+                self.addline('$LOAD = LOAD_DATA[1]')
             else:
                 
                 self.PROG.append(defaultt)
                 # self.addline('$TOOL = {FRAME: ' + self.pose_2_str(self.torch_tcp) + '}')
                 self.addline('$TOOL = TOOL_DATA[8]')
+                self.addline('$LOAD = LOAD_DATA[1]')
 
 
         """Add a joint movement"""
@@ -957,13 +962,16 @@ class RobotPost(object):
                 self.PROG.append(mainn)
                 # self.addline('$TOOL = {FRAME: ' + self.pose_2_str(self.torch_tcp) + '}')
                 self.addline('$TOOL = TOOL_DATA[8]')
+                self.addline('$LOAD = LOAD_DATA[1]')
             elif self.PROG_NAME[0].lower() == 's':
                 self.addline('$TOOL = TOOL_DATA[8]')
+                self.addline('$LOAD = LOAD_DATA[1]')
             else:
                 
                 self.PROG.append(defaultt)
                 # self.addline('$TOOL = {FRAME: ' + self.pose_2_str(self.torch_tcp) + '}')
                 self.addline('$TOOL = TOOL_DATA[8]')
+                self.addline('$LOAD = LOAD_DATA[1]')
         """Add a linear movement"""
         self.new_move(pose) # used for 3D printing
         
@@ -985,13 +993,16 @@ class RobotPost(object):
                 self.PROG.append(mainn)
                 # self.addline('$TOOL = {FRAME: ' + self.pose_2_str(self.torch_tcp) + '}')
                 self.addline('$TOOL = TOOL_DATA[8]')
+                self.addline('$LOAD = LOAD_DATA[1]')
             elif self.PROG_NAME[0].lower() == 's':
                 self.addline('$TOOL = TOOL_DATA[8]')
+                self.addline('$LOAD = LOAD_DATA[1]')
             else:
                 
                 self.PROG.append(defaultt)
                 # self.addline('$TOOL = {FRAME: ' + self.pose_2_str(self.torch_tcp) + '}')
                 self.addline('$TOOL = TOOL_DATA[8]')
+                self.addline('$LOAD = LOAD_DATA[1]')
         """Add a circular movement"""
         self.new_move(pose2) # used for 3D printing
         
