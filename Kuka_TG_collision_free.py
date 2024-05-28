@@ -73,7 +73,7 @@ DEFAULT_HEADER_MAIN = '''
 
 ;FOLD Initialise and set default speed
 BAS (#INITMOV,0)
-BAS (#VEL_PTP,100)
+BAS (#VEL_PTP,10)
 BAS (#ACC_PTP,20)
 $VEL.CP=0.2
 BAS (#TOOL,0)
@@ -99,7 +99,7 @@ $ADVANCE = 3
 ;ENDFOLD
 
 count = 0
-part_id =10
+part_id =19
 i=1
 numOfToolPaths =1
 numOfCapturePoses = 1
@@ -156,8 +156,8 @@ PTP {A1 -11.27,A2 -70.18,A3 82.40,A4 -1.82,A5 80.83,A6 -4.90,E1 0.00000}
 
 $TOOL = TOOL_DATA[2]
 $BASE = $NULLFRAME
-$VEL.CP = 1
-'$LOAD = LOAD_DATA[1]'
+$VEL.CP = 0.25
+$LOAD = LOAD_DATA[1]
 
 FOR i = 1 to numOfCapturePoses
     wait for $FLAG[2]
@@ -327,7 +327,7 @@ DEFAULT_HEADER_SAFE_MOVE = '''
 
 ;FOLD Initialise and set default speed
 BAS (#INITMOV,0)
-BAS (#VEL_PTP,100)
+BAS (#VEL_PTP,10)
 BAS (#ACC_PTP,100)
 $VEL.CP=0.2
 BAS (#TOOL,0)
@@ -368,7 +368,7 @@ FRAME baseFrame
 
 ;FOLD Initialise and set default speed
 BAS (#INITMOV,0)
-BAS (#VEL_PTP,100)
+BAS (#VEL_PTP,10)
 BAS (#ACC_PTP,20)
 $VEL.CP=0.2
 BAS (#TOOL,0)
